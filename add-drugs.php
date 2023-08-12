@@ -109,7 +109,7 @@
                                                 <input type="text" class="form-control" id="brand-name" name="brand">
                                             </div>
 											<div class="form-group">
-                                                <label for="brand-name">Alert Qty  hghg :</label>
+                                                <label for="brand-name">Alert Qty:</label>
                                                 <input type="text" class="form-control" id="brand-name" name="brand">
                                             </div>
 													<div class="form-group">
