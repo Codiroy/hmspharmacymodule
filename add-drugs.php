@@ -108,6 +108,10 @@
                                                 <label for="brand-name">Name:</label>
                                                 <input type="text" class="form-control" id="brand-name" name="brand">
                                             </div>
+											<div class="form-group">
+                                                <label for="brand-name">Alert Qty:</label>
+                                                <input type="text" class="form-control" id="brand-name" name="brand">
+                                            </div>
 													<div class="form-group">
 															<label>Category</label>
 															<select name="category" class="form-control" readonly>
@@ -127,6 +131,7 @@
                                                 <label for="image-url">Image URL:</label>
                                                 <input disabled type="file" class="form-control" id="image-url" name="image-url">
                                             </div>
+											
 											<div class="form-group">
 												<button name="newcounty" class="btn btn-md btn-primary" type="submit"><i class="fa fa-plus"></i> Add Drug </button>
 											</div>	
