@@ -3,10 +3,11 @@ include('includes/authenticate.php');
 $id=$_GET['str'];
 $result =mysqli_query($dbconnect,"SELECT * FROM `tbl_tempsales`WHERE `temp_busketid`='$id' group by `temp_prodcode`");
  if(isset($id)){?>	
+                           
                            <table class="table table-striped table-bordered table-hover dataTables-example" >
 								<thead>
 								<tr>
-									<!--<th><input type="checkbox" id="selectall" class="i-checks"></th>-->
+									<!--<th><input type="checkbox" id="selectall" class="i-checks"></th> commment h-->
 									<th>S/No</th>
 									<th>Drug Name</th>
 									<th>Unit Price </th>
