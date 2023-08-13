@@ -41,10 +41,7 @@
 				</ol>
 			</div>
 				<div class="col-lg-5">
-				<p class="pull-right"><br>
-				<span><a href="add-inventory.php"><button class="btn btn-primary" type="button"><i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold"> New Stock</span></button></a></span> &nbsp;
-				<span><a href="manage-prices.php"><button class="btn btn-success" type="button"><i class="fa fa-money"></i>&nbsp;&nbsp;<span class="bold"> Drug Prices</span></button></a></span> &nbsp;
-				<span><a href="add-drugs.php"><button class="btn btn-primary" type="button"><i class="fa fa-save"></i>&nbsp;&nbsp;<span class="bold"> Add drug</span></button></a></span>
+				<p class="pull-right">
 				</p>
 				</div>
 		</div>
