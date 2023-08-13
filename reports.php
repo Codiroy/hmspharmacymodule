@@ -54,7 +54,7 @@
         <div class="wrapper wrapper-content">
                 <div class="row">					
 								
-					<div class="col-lg-3">					
+					<div class="col-lg-6">					
 						<div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Pharmacy</h5>
@@ -65,6 +65,7 @@
 								<li> <a href="servedpatients.php"><i class="fa fa-graph"></i>Served Patients</a></li>
 								<li><a href="#">Pharmacy Services</a></li>  
 								<li><a href="#"> Summary OTC </a></li> 
+								<li><a href="#"> Low Stock </a></li> 
 								<li><a href="adminsales.php"> Summary for Purchases </a></li> 
 								<li><a href="#"> Purchase Report/Inventory Plus pricing </a></li>   
 								<li><a href="drugscurrentstock.php"> Medicine Qty and Price List </a></li>   
