@@ -4,15 +4,11 @@ $username = "root";
 $password = "";
 $dbname = "hms_pharmacy_module";
 $t2=$_GET['str'];
- $busk=$_GET['busk'];
  $conn = new mysqli($servername, $username, $password, $dbname);
  if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
  }
-session_start();    
-$mybusket=$busk;
-$sql1 = "DELETE FROM `tbl_tempsales` WHERE `temp_busketid`='$mybusket'";
-$result = $conn->query($sql1);
+session_start();   
 
 unset($_SESSION['cart']);
 unset($_SESSION['busket']);
@@ -22,7 +18,7 @@ unset($_SESSION['edit']);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Transaction Complete</title>
+	<title>Queue successfully</title>
 	<style>
         .check {
 			display: block;
@@ -63,11 +59,11 @@ unset($_SESSION['edit']);
                 margin-top: 20px;
                 align-items: center;
                 font-size: large;">
-                Transaction Complete, Paid <?php echo $t2."/=";?>
+                Queue successfully, Pay <?php echo $t2."/=";?>
     </div>
 	<div class="buttons">
-        <button onclick="acounts()" class="btn btn-primary">New Order</button>
-        <button onclick="printDiv('printableArea')" class="btn btn-primary"><i class="fa fa-print"></i> Print Receipt</button>
+        <button onclick="home()" class="btn btn-primary">New Order</button>
+        <button onclick="acounts()" class="btn btn-primary"><i class="fa fa-print"></i> Complete Payments</button>
 	</div>
 </body>
 </html>

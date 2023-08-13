@@ -1,9 +1,9 @@
 <?php include('includes/authenticate.php'); 
 	$newid=time();
     $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "agrovet";
+    $username = "root";
+    $password = "";
+    $dbname = "hms_pharmacy_module";
 
     
     $conn = new mysqli($servername, $username, $password, $dbname);

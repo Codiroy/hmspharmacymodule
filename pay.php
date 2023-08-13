@@ -3,7 +3,7 @@
     $servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname = "agrovet";
+	$dbname = "hms_pharmacy_module";
     $t=$_GET['str'];
     $mybusket=$_GET['busk'];
     $conn = new mysqli($servername, $username, $password, $dbname);

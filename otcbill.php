@@ -68,7 +68,7 @@
 			}
 		</script>
 		<script>
-			function home(){
+			function acounts(){
 				window.location.href = "sess.php?r=1";
 			}
 		</script>
@@ -118,7 +118,7 @@
 					<div class="row">					
 									
 					</div>				
-					<div class="col-lg-5">					
+					<div class="col-lg-4">					
 						<div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Busket</h5>
@@ -131,8 +131,8 @@
 								<tr>
 									
 									<th>S/NO </th>
-									<th>Busket number</th>
-									<th>Buyer</th>
+									<th>Cart ID</th>
+									<!--<th>Customer</th>-->
 									<th>Action </th>
 								</tr>
 								</thead>
@@ -148,7 +148,7 @@
 									//$drugitem_sellingprice = $gcn['drugitem_sellingprice'];
 								?>	<td><?php echo $No; ?></td>
 									<td><?php echo $temp_busketid; ?></td>
-									<td><?php echo $buyer; ?></td>
+									<!--<td><?php // echo $buyer; ?></td>-->
 									<td><button onclick="checkout(<?php echo $temp_busketid;?>)" class="btn-xs btn-primary"><i class="fa fa-pencil"></i> Open </button> </td>
 								</tr>
 								<?php
@@ -162,13 +162,10 @@
 					</div>
 					</div>
 					
-					<div class="col-lg-7">					
+					<div class="col-lg-8">					
 						<div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>List Items</h5>
-                            <p class="pull-right"><a href="sessinvoice.php?page=invoice" style="text-align:center;">
-                            <button  class="btn btn-primary"><i class="fa fa-trash"></i> Clear List</button>
-							</a></p>
+                           
 						</div>
                         <div class="ibox-content">
                            <div class="row" id="cart">

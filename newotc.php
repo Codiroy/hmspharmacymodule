@@ -121,6 +121,7 @@ if(isset($_POST['update'])){
 			xmlhttp.open("GET","loadcart.php?i="+id+"&n="+name+"&batch="+b+"&stock="+s+"&p="+p+"&img=drug.jpg");
 			xmlhttp.send();
 			}
+
 		</script>
 		<script>
 			function openedit(drugid,cart,name) {
@@ -160,13 +161,16 @@ if(isset($_POST['update'])){
 				document.getElementById("livesearch").style.border="0px solid #A5ACB2";
 				}
 			}
-			xmlhttp.open("GET","transaction_complete.php?str="+str);
+			xmlhttp.open("GET","donequeing.php?str="+str);
 			xmlhttp.send();
 			}
 		</script>
 		<script>
 			function home(){
 				window.location.href = "sess.php";
+			}
+			function acounts(){
+				window.location.href = "sess.php?r=1";
 			}
 		</script>
 		<script>

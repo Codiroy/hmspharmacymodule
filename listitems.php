@@ -7,7 +7,7 @@ $result =mysqli_query($dbconnect,"SELECT * FROM `tbl_tempsales`WHERE `temp_buske
 								<thead>
 								<tr>
 									<!--<th><input type="checkbox" id="selectall" class="i-checks"></th>-->
-									<th>S/NO</th>
+									<th>S/No</th>
 									<th>Drug Name</th>
 									<th>Unit Price </th>
 									<th>Quantity</th>
