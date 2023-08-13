@@ -30,7 +30,7 @@ $result9 = mysqli_query($dbconnect, $sql9);
 $row9 = mysqli_num_rows($result9);
 
 //get expiry
-$expiry=date('Y-m-d', strtotime('+7 days'));
+$expiry=date('Y-m-d', strtotime('+14 days'));
 $sql10 = "SELECT SUM(inve_qty) as exiprytotal FROM tbl_inventory WHERE `inve_expirydate`>='$expiry' AND `inve_expirydate`<='$expiry'";
 $result10 = mysqli_query($dbconnect, $sql10);
 $row10 = mysqli_fetch_assoc($result10);
@@ -65,9 +65,7 @@ $exiprytotal= $row10["exiprytotal"];
 			$sql23 = "SELECT SUM(prescription_price*prescription_quantity) as servedipamount FROM tbl_prescriptions WHERE prescription_patientcategory='INPATIENT' AND `prescription_requesttime`='$date' AND prescription_status='CLOSED'";
 			$result23 = mysqli_query($dbconnect, $sql23);
 			$row23 = mysqli_fetch_assoc($result23);
-			$servedipamount= $row23["servedipamount"];
-			
-			
+			$servedipamount= $row23["servedipamount"];			
 		//OP patients served	
 			$sql22 = "SELECT COUNT(DISTINCT (prescription_opno)) as servedoprow FROM tbl_prescriptions WHERE prescription_patientcategory='OUTPATIENT' AND `prescription_requesttime`='$date' AND prescription_status='CLOSED'";
 			$result22 = mysqli_query($dbconnect, $sql22);
@@ -195,50 +193,7 @@ $exiprytotal= $row10["exiprytotal"];
 							Revenue made today</h3>"; }?>
                         </div>
                     </div>
-                    <div class="widget blue-bg p-lg text-center">
-                         <div class="row">
-                                            <div class="col-lg-12">
-                                                <table class="table margin bottom">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Category</th>
-                                                        <th>Patients</th>
-                                                        <th class="text-center">Revenue</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td> OTC DRUGS SOLD</td>
-                                                        <td class="text-center"><span class="label label-primary"> 
-														<?php if($salecount>0){ ?>
-														<?php  echo $salecount; }?>
-													</span></td>
-													 <td class="text-center"><span class="label label-primary">Ksh. <?php if($total>0){
-														echo number_format($total,2); }?></span></td>
-                                                    </tr>
-                                                     
-													<tr>
-                                                        <td> PHARMACY IP </td>
-                                                        <td class="text-center"><span class="label label-primary"><?php echo $servedip ?></span></td>
-														<td class="text-center"><span class="label label-primary">Ksh. <?php echo $servedipamount; ?></span></td>
-                                                    </tr>
-													<tr>
-                                                        <td>PHARMACY OP </td>
-                                                        <td class="text-center"><span class="label label-primary"><?php echo $servedop ?></span></td>
-														<td class="text-center"><span class="label label-primary">Ksh. <?php echo $servedopamount; ?></span></td>
-                                                    </tr>
-													<tr>
-                                                        <td>DRUGS DUE EXPIRY
-                                                        </td>
-														<td>
-                                                        </td>
-                                                        <td class="text-center"><span class="label label-warning"> <?php if($exiprytotal>0){   echo $exiprytotal; }?></span></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                    </div>
-                    </div>
+                    
                 </div>
                   <div class="col-lg-3">
 				  <div class="widget  lazur-bg p-lg text-center">
@@ -252,40 +207,6 @@ $exiprytotal= $row10["exiprytotal"];
                             </h3> <?php }else{ ?> <i class="fa fa-clipboard fa-4x" style=""></i><?php echo "<h1 class='m-xs'>No
                              </h1><h3> Patients </h3>"; }?>
                         </div>
-                    </div>
-                    <div class="widget blue-bg p-lg text-center">
-                         <div class="row">
-                                            <div class="col-lg-12">
-                                                <table class="table margin bottom">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>OP Item</th>
-                                                        <th>Patients</th>
-                                                        <th>Amount</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php
-													$getbills = mysqli_query($dbconnect, "SELECT p.pscheme_name, p. pscheme_code, count(DISTINCT bill_opno) AS numberofpatients, SUM(bill_amount*bill_qty) AS schemeamountonaday FROM tbl_billing b INNER JOIN tbl_paymentschemes p ON b.bill_paymentscheme=p.pscheme_code WHERE b.bill_patientcategory='OUTPATIENT' GROUP BY b.bill_paymentscheme ORDER BY b.bill_paymentscheme");
-												while($billarray = mysqli_fetch_array($getbills)){
-													$schemeamountonaday = $billarray['schemeamountonaday'];
-													$pscheme_name = $billarray['pscheme_name'];
-													$numberofpatients = $billarray['numberofpatients'];
-                                                    echo "<tr>";
-                                                        echo "<td> $pscheme_name </td>";
-                                                        echo "<td> $numberofpatients </td>";
-                                                        echo "<td><span class='label label-primary'>Ksh.";
-														echo number_format($schemeamountonaday,2);
-														echo"</span></td>";
-                                                        
-                                                    echo "</tr>";
-												}
-												?>
-													
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                    </div>
                     </div>
                 </div>
 				    <div class="col-lg-3">
@@ -301,40 +222,7 @@ $exiprytotal= $row10["exiprytotal"];
                              </h1><h3>Due for expiry</h3>"; }?>                        
                         </div>
                     </div>
-                    <div class="widget blue-bg p-lg text-center">
-                         <div class="row">
-                                            <div class="col-lg-12">
-                                                <table class="table margin bottom">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>IP Item</th>
-                                                        <th>Patients</th>
-                                                        <th>Amount</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php
-													$getbillsip = mysqli_query($dbconnect, "SELECT p.pscheme_name, p. pscheme_code, count(DISTINCT bill_opno) AS numberofpatientsip, SUM(bill_amount*bill_qty) AS schemeamountonadayip FROM tbl_billing b INNER JOIN tbl_paymentschemes p ON b.bill_paymentscheme=p.pscheme_code WHERE b.bill_patientcategory='INPATIENT' GROUP BY b.bill_paymentscheme ORDER BY b.bill_paymentscheme");
-												while($billarrayip = mysqli_fetch_array($getbillsip)){
-													$schemeamountonadayip = $billarrayip['schemeamountonadayip'];
-													$pscheme_name = $billarrayip['pscheme_name'];
-													$numberofpatientsip = $billarrayip['numberofpatientsip'];
-                                                    echo "<tr>";
-                                                        echo "<td> $pscheme_name </td>";
-                                                        echo "<td> $numberofpatientsip </td>";
-                                                        echo "<td><span class='label label-primary'>Ksh.";
-														echo number_format($schemeamountonadayip,2);
-														echo"</span></td>";
-                                                        
-                                                    echo "</tr>";
-												}
-												?>
-													
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                    </div>
-                    </div>
+                    
                 </div>
 							<?php
 													$getbillsrevenuehosp = mysqli_query($dbconnect, "SELECT SUM(bill_amount*bill_qty) AS hosprevenue FROM tbl_billing");
@@ -354,12 +242,7 @@ $exiprytotal= $row10["exiprytotal"];
                              </h1><h3>Item in the Inventory</h3>"; }?>                        
 
 						</div>
-					</div>
-                    <div class="widget blue-bg p-lg text-center">
-                         <div class="row">
-                                            
-                         </div>
-                    </div>
+                            </div>
                 </div>
               
                
